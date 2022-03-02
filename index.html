@@ -9,14 +9,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    <div>
+    <div id="app">
         <header>
             {{sitename}}
         </header>
         <main>
+            <div>
+                <h2 v-text="product.subject"></h2>
+            </div>
 
         </main>
     </div>
+
+    <script>
+        var store = new Vue({
+            el: '#app',
+            data: {
+                sitename: 'After School Club',
+                product: {
+                    subject: 'Math',
+                    location: 'London',
+                    price: 100,
+                    Numberofspaces: 5
+                },
+            }
+        })
+    </script>
     
 </body>
 </html>
