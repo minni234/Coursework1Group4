@@ -11,7 +11,9 @@
 <body>
     <div id="app">
         <header>
-            {{sitename}}
+            <h1>
+                {{sitename}}
+            </h1>
         </header>
         <main>
             <div>
@@ -19,7 +21,7 @@
                 <p v-html="product.location"></p>
                 <p>Price: {{product.price}}</p>
                 <p>Number of Spaces: {{product.Numberofspaces}}</p>
-                <button>Add to cart</button>
+                <button v-on:click="addToCart">Add to cart</button>
             </div>
 
         </main>
@@ -36,6 +38,16 @@
                     price: 100,
                     Numberofspaces: 5
                 },
+                cart: [],
+            },
+
+            methods: {
+                addToCart: function () {
+                    this.cart.push(this.product.subject);
+                    if(this.product.Numberofspaces > 0) {
+                        this.product.Numberofspaces --;
+                    }
+                }
             }
         })
     </script>
