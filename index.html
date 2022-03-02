@@ -21,9 +21,9 @@
                 <p v-html="product.location"></p>
                 <p>Price: {{product.price}}</p>
                 <p>Number of Spaces: {{product.Numberofspaces}}</p>
-                <button v-on:click="addToCart">Add to cart</button>
+                <button v-on:click="addToCart" v-if="canAddToCart">Add to cart</button>
+                <button disabled="disabled" v-else>Add To Cart</button>
             </div>
-
         </main>
     </div>
 
@@ -47,6 +47,11 @@
                     if(this.product.Numberofspaces > 0) {
                         this.product.Numberofspaces --;
                     }
+                },
+
+
+                canAddToCart: function() {
+                    return this.product.Numberofspaces != 0
                 }
             }
         })
